@@ -1,0 +1,28 @@
+/*
+ Theme Name:   Palmeria Child
+ Theme URI:    https://jcmvdb.com/
+ Description:  Palmeria Child Theme
+ Author:       Roger Overdevest
+ Author URI:   https://jcmvdb.com/
+ Template:     palmeria
+ Version:      1.0.0
+ Tags:         plaats, hier, jouw, tags, gescheiden, door, kommas
+ Text Domain:  twentytwentyone-child
+*/
+
+/* =Own CSS
+-------------------------------------------------------------- */
+.Title {
+    text-align: center;
+}
+
+.Form {
+    max-width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+}
+
+.absolute-sidebar {
+	width: 50%;
+}
