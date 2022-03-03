@@ -52,7 +52,6 @@ if (in_array('administrator', (array)$user->roles)) {
             ?>
             <tr>
                 <th scope="row"><?php echo $i; ?></th>
-                <!--                <th scope="row">--><?php //echo $gamesItem->GameId; ?><!--</th>-->
                 <td><?php echo $gamesItem->Name; ?></td>
                 <td><?php echo $gamesItem->Developer; ?></td>
                 <td><?php echo $gamesItem->Form; ?></td>
@@ -67,8 +66,28 @@ if (in_array('administrator', (array)$user->roles)) {
     <?php
 } else {
     ?>
-        <h1 class="Title">HAHAHAHAHAHA wat doe jij uberhaupt hier ben je schele kut kop</h1>
-    <?php
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+
+            <section class="error-404 not-found">
+                <header class="page-header">
+                    <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'palmeria' ); ?></h1>
+                </header><!-- .page-header -->
+
+                <div class="page-content">
+                    <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try search?', 'palmeria' ); ?></p>
+
+                    <?php
+                    get_search_form();
+                    ?>
+                    <a href="<?php home_url();?>" class="button"><?php echo esc_html__('Go to home page', 'palmeria');?></a>
+                </div>
+
+            </section><!-- .error-404 -->
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+        <?php
 }
 ?>
 <?php
