@@ -24,7 +24,6 @@ if (!is_user_logged_in()) { // Display WordPress login form:
     );
 
     wp_login_form($args);
-    echo '<p>heeft u nog geen account? <a href="/register">Registreer dan hier.</a></p>';
 } else { // If logged in:
     require_once("account.php");
 }
