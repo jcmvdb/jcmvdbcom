@@ -2,16 +2,14 @@
 get_header();
 if (is_user_logged_in()) {
     $user = wp_get_current_user();
-    $testResult = $wpdb->get_results("
-        SELECT * FROM `testing` `t`
-        LEFT JOIN `wp_users` `wpu`
-        ON `t`.`wpUsersID` = `wpu`.`ID`
-        LEFT JOIN `roomtypes` `rt`
-        ON `t`.`roomtypeID` = `rt`.`roomtypeID`
-        WHERE `wpUsersID` = $user->ID
-        ORDER BY `testingID` DESC
-        LIMIT 1
-    ");
+    $games = $wpdb->get_results('
+        SELECT * FROM `games` `g`
+        LEFT JOIN `Platform` `p`
+        ON `g`.`PlatformId` = `p`.`PlatformId`
+        LEFT JOIN `Form` `f`
+        ON `g`.`FormId` = `f`.`FormId`
+        WHERE 1
+');
     ?>
     <style>
         .topbar a {
@@ -105,56 +103,65 @@ if (is_user_logged_in()) {
                         </div>
                     </div>
                 </div>
-
+                <?php
+                foreach ($games as $GameItem) {
+                    $gameArray[] = $GameItem->GameId;
+                }
+                $count = count($gameArray) - 1;
+                $rand = rand(0, $count);
+                echo $rand . "<br>";
+                $randomGame = $gameArray[$rand];
+                ?>
                 <div class="card mb-3 content">
-                    <h1 class="m-3">Recent geboekte kamers</h1>
+                    <h1 class="m-3">Random Game uit mijn gameverzameling</h1>
                     <div class="card-body">
-                        <?php foreach ($testResult as $item) { ?>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Bestelling nummer</h5>
+                        <?php foreach ($games as $item) {
+                            if ($item->GameId == $randomGame) {
+                                ?>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5>Game</h5>
+                                    </div>
+                                    <div class="col-md-9 text-secondary">
+                                        <?php print_r($item->Name) ?>
+                                    </div>
                                 </div>
-                                <div class="col-md-9 text-secondary">
-                                    <?php print_r($item->testingID) ?>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5>Uitgever</h5>
+                                    </div>
+                                    <div class="col-md-9 text-secondary">
+                                        <?php print_r($item->Developer) ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Begin Datum</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5>Fysiek/Download</h5>
+                                    </div>
+                                    <div class="col-md-9 text-secondary">
+                                        <?php print_r($item->Form) ?>
+                                    </div>
                                 </div>
-                                <div class="col-md-9 text-secondary">
-                                    <?php print_r($item->test1) ?>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5>Platform</h5>
+                                    </div>
+                                    <div class="col-md-9 text-secondary">
+                                        <?php print_r($item->Platform) ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Eind Datum</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    <?php print_r($item->test2) ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>kamer type</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    <?php print_r($item->type) ?>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>tijdstip van boeking</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    <?php print_r($item->Timestamp) ?>
-                                </div>
-                            </div>
-                        <?php } ?>
+                            <?php } else {
+//                                echo "<pre>";
+//                                var_dump($gameArray);
+//                                echo "</pre>";
+//                                echo count($gameArray);
+                            }
+                        }
+
+                        ?>
                     </div>
                 </div>
             </div>
