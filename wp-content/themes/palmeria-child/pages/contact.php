@@ -1,32 +1,17 @@
 <?php
 /*
- Template Name: Contact
+ Template Name: contact
  */
 get_header();
 ?>
-
     <h1 class="Title">Contact</h1>
-    <div class="contact">
-        <div class="point">
-            <h2>E-mail:</h2>
-            <p>mvdb.jeroen@gmail.com</p>
-        </div>
-        <div class="point">
-            <h2>Telefoon</h2>
-            <p>mvdb.jeroen@gmail.com</p>
-        </div>
-        <div class="Form">
-            <form method="post" action="">
-                <label for="Name">Naam:</label>
-                <input type="text" id="Name" name="Name" placeholder="Naam" autofocus required><br>
-                <label for="Phone">Telefoon nummer:</label>
-                <input type="text" id="Phone" name="Phone" placeholder="Telefoon nummer" required><br>
-                <label for="Email">E-mail:</label>
-                <input type="email" id="Email" name="Email" placeholder="E-mail" required><br>
-                <input type="submit" name="submit" value="submit">
-            </form>
-        </div>
-    </div>
+    <p>Alle informatie over mij</p>
 
+
+    <div>
+        <h2>Social Media</h2>
+        <h3>Twitter</h3>
+        <a href="https://twitter.com/Jcmvdb1">twitter</a>
+    </div>
 <?php
 get_footer();

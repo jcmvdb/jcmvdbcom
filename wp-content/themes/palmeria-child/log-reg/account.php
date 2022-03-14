@@ -109,11 +109,10 @@ if (is_user_logged_in()) {
                 }
                 $count = count($gameArray) - 1;
                 $rand = rand(0, $count);
-                echo $rand . "<br>";
                 $randomGame = $gameArray[$rand];
                 ?>
                 <div class="card mb-3 content">
-                    <h1 class="m-3">Random Game uit mijn gameverzameling</h1>
+                    <h1 class="m-3">Random Game</h1>
                     <div class="card-body">
                         <?php foreach ($games as $item) {
                             if ($item->GameId == $randomGame) {
