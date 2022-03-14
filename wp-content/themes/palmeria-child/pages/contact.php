@@ -10,8 +10,9 @@ get_header();
 
     <div>
         <h2>Social Media</h2>
-        <i><a href="https://twitter.com/Jcmvdb1" target="_blank">twitter</a></i><br>
-        <i><a href="https://www.instagram.com/jcmvdb1/" target="_blank">Instagram</a> (account staat privé)</i>
+        <a href="https://twitter.com/Jcmvdb1"><i class="fab fa-twitter"> Twitter</i></a><br>
+        <a href="https://www.instagram.com/jcmvdb1/"><i class="fab fa-instagram"> Instagram (account staat privé)</i></a><br>
+        <a href="https://www.twitch.tv/jcmvdb"><i class="fab fa-twitch"> Twitch</i></a><br>
     </div>
 <?php
 get_footer();
