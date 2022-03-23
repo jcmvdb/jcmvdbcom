@@ -163,6 +163,48 @@ if (is_user_logged_in()) {
                         ?>
                     </div>
                 </div>
+                <?php
+                function AmountOfGames($wpdb, $number = 1)
+                {
+                    $count = 0;
+                    $amount = $wpdb->get_results('SELECT * FROM `Games` WHERE `PlatformId` = ' . $number . '');
+                    foreach ($amount as $item) {
+                        $count++;
+                    }
+                    echo $count;
+                }
+                ?>
+
+                <div class="card content">
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        google.charts.load("current", {packages: ["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+                            var data = google.visualization.arrayToDataTable([
+                                ['Console', 'Amount of Games'],
+                                ['Playstation 4',     <?php AmountOfGames($wpdb, 1); ?>],
+                                ['Nintendo Switch',      <?php echo AmountOfGames($wpdb, 2); ?>],
+                                ['Nintendo 64',  <?php echo AmountOfGames($wpdb, 3); ?>],
+                                ['Nintendo Gameboy Advance', <?php echo AmountOfGames($wpdb, 4); ?>],
+                                ['Nintendo Gameboy Colour', <?php echo AmountOfGames($wpdb, 5); ?>],
+                                ['Nintendo DS', <?php echo AmountOfGames($wpdb, 6); ?>],
+                                ['PC', <?php echo AmountOfGames($wpdb, 7); ?>],
+                                //['Nintendo 64', <?php //echo $nintendo64Count ?>//],
+                            ]);
+
+                            var options = {
+                                title: 'My Games Collection',
+                                pieHole: 0.3,
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="donutchart" style="height: 500px;"></div>
+                </div>
             </div>
         </div>
     </div>
