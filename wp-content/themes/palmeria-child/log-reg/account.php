@@ -3,7 +3,7 @@ get_header();
 if (is_user_logged_in()) {
     $user = wp_get_current_user();
     $games = $wpdb->get_results('
-        SELECT * FROM `games` `g`
+        SELECT * FROM `Games` `g`
         LEFT JOIN `Platform` `p`
         ON `g`.`PlatformId` = `p`.`PlatformId`
         LEFT JOIN `Form` `f`

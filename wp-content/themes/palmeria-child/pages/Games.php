@@ -5,7 +5,7 @@
 
 //$wpdb;
 $games = $wpdb->get_results('
-        SELECT * FROM `games` `g`
+        SELECT * FROM `Games` `g`
         LEFT JOIN `Platform` `p`
         ON `g`.`PlatformId` = `p`.`PlatformId`
         LEFT JOIN `Form` `f`
