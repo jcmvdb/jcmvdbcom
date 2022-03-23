@@ -103,66 +103,50 @@ if (is_user_logged_in()) {
                         </div>
                     </div>
                 </div>
-                <?php
-                foreach ($games as $GameItem) {
-                    $gameArray[] = $GameItem->GameId;
-                }
-                $count = count($gameArray) - 1;
-                $rand = rand(0, $count);
-                $randomGame = $gameArray[$rand];
-                ?>
+                <!---------------------------------------------------------------------->
+
                 <div class="card mb-3 content">
                     <h1 class="m-3">Random Game</h1>
                     <div class="card-body">
-                        <?php foreach ($games as $item) {
-                            if ($item->GameId == $randomGame) {
-                                ?>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h5>Game</h5>
-                                    </div>
-                                    <div class="col-md-9 text-secondary">
-                                        <?php print_r($item->Name) ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h5>Uitgever</h5>
-                                    </div>
-                                    <div class="col-md-9 text-secondary">
-                                        <?php print_r($item->Developer) ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h5>Fysiek/Download</h5>
-                                    </div>
-                                    <div class="col-md-9 text-secondary">
-                                        <?php print_r($item->Form) ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h5>Platform</h5>
-                                    </div>
-                                    <div class="col-md-9 text-secondary">
-                                        <?php print_r($item->Platform) ?>
-                                    </div>
-                                </div>
-                            <?php } else {
-//                                echo "<pre>";
-//                                var_dump($gameArray);
-//                                echo "</pre>";
-//                                echo count($gameArray);
-                            }
-                        }
-
-                        ?>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Game</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>test</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Uitgever</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>test</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Fysiek/Download</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>test</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Platform</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <p>test</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                <!---------------------------------------------------------------------->
                 <?php
                 function AmountOfGames($wpdb, $number = 1)
                 {
