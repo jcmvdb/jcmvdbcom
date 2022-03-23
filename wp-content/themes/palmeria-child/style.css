@@ -26,3 +26,48 @@
 .absolute-sidebar {
 	width: 50%;
 }
+
+#loginform-custom {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-submit {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.social-footer i{
+    color: #afb2bb;
+    padding: 5px;
+    border: 1px solid #afb2bb;
+    border-radius: 100%;
+    margin: 2.5px;
+}
+
+.social-footer i:hover{
+    color: #262627;
+    background-color: #afb2bb;
+    /*border-color: #262626*/
+}
+
+.social-footer i:active{
+    border-color: #5a5a5e;
+}
+
+.custom-header:after {
+    background-color: transparent;
+}
+
+.main-navigation {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.site-content {
+    border-radius: 10px 10px 0 0;
+}
